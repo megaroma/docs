@@ -1,0 +1,8 @@
+// double to string
+var lat : Double!
+var buf:String = NSString(format: "%.3f", lat)
+
+//int to string
+var test: Int!
+var buf:String = String(test)
+

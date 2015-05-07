@@ -1,0 +1,27 @@
+Sent(Post) Notification
+
+NSNotificationCenter.defaultCenter().postNotificationName("NotificationIdentifier", object: nil)
+
+
+
+Receive(Get) Notification
+
+NSNotificationCenter.defaultCenter().addObserver(self, selector: "methodOfReceivedNotification:", name:"NotificationIdentifier", object: nil)
+
+
+Remove Notification
+
+NSNotificationCenter.defaultCenter().removeObserver(self, name: "NotificationIdentifier", object: nil)
+
+
+Method of received Notification
+
+func methodOfReceivedNotification(notification: NSNotification){
+    //Action take on Notification
+}
+
+
+//system events:
+
+UIApplicationDidBecomeActiveNotification
+

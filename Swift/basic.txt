@@ -1,0 +1,128 @@
+Integers:
+-------
+1234          
+1_000_000     
+0x00ff00      
+0o777
+
+Floats:
+--------
+12.34     
+3.141592      
+1.0e6         
+1_000_000.0 
+
+Strings:
+-------
+"Archer"              
+"Two Lines\nSecond Line"
+
+Usage:
+--------------
+let HoursPerDay = 24
+let DaysPerWeek = 7
+let HoursPerWeek = DaysPerWeek * HoursPerDay
+let PoundsPerKilo = 2.2
+let pi = 3.14159265358979
+let flash = "spark"
+let bang = "!"
+let crash = flash + bang
+
+let bang: Character = "!"
+
+let powerOn = false
+let keyInDoor = true
+let doorCanBeOpened = keyInDoor & doorWorking
+
+Constant Declarations
+let daysPerYear = 365.25
+let secondsPerDay = 24.0 * 60.0 * 60.0
+let secondsPerYear = secondsPerDay * daysPerYear
+
+Variable Declarations
+var secondsSince1970 = NSDate.date().timeIntervalSince1970
+var yearSince1970 : Double = 0
+var count: Int 
+var streetName: String = "Main Street"
+
+Assignments
+yearSince1970 = secondsSince1970 / secondsPerYear
+count = 5
+streetName = "Infinite Loop"
+
+
+Arrays:
+--------------------------
+let names = ["Alice", "Bob", "Carol"]
+var ages  = [24, 27, 29]               // type is inferred from initial value
+var cities: [String]                   // type is specified (the short way)
+var states: Array<String>              // type is specified (the long way)
+let flags: [Character] = ["r", "w", "x"]
+
+cities = ["San Francisco", "New York"]
+cities[0] = "Las Vegas"                // replaces "San Francisco" at index 0
+ages[1] = 28                          // replaces 27 that was at index 1
+
+
+Dictionaries:
+-------------------
+let abcAges = ["Alice" : 24, "Bob" : 27, "Carol" : 29]    // type is inferred
+var ages: Dictionary<String,Int>                    // type specified
+
+ages = abcAges
+ages["Bob"] = 24
+
+
+If Statement:
+-----------------
+if cities[0] == "Las Vegas" {
+    state = "Nevada"
+}
+
+if distanceInMeters < 10 {
+    units = Centimeters;
+} else if distanceInMeters < 100 {
+    units = Meters;
+} else {
+    units = Kilometers;
+} 
+
+For Loops
+----------------
+for var i=1; i<=10; ++i {
+    // do something using i as it goes from 1 to 10
+}
+
+for index in 1…10 {
+    // do something using index as it goes from 1 to 10
+    println("index is \(index)")
+}
+for index in 1 ..< 10 {
+    // do something using index as it goes from 1 to 9
+    println("index is \(index)")
+}
+
+//-----foreach
+var abcAges = ["Alice" : 24, "Bob" : 27, "Carol" : 29]  
+
+for (name, age) in abcAges {
+    println("\(name) is \(age) years old.")
+}
+
+While Loop Statement:
+------------------------
+var i = 1
+
+while i <= 10 {
+    println ("\(i)")
+    i++
+}
+
+
+
+
+
+
+
+
+

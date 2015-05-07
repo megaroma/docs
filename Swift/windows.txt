@@ -1,0 +1,26 @@
+
+
+передать параметры:
+
+//в первом контроллере:
+
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "testtt") {
+            var svc = segue.destinationViewController as InfoViewController;
+            
+            svc.toPass = textField.text
+            
+        }
+    }
+
+//во втором контроллере
+class InfoViewController: UIViewController {
+    var toPass:String!
+
+
+//что бы запустить окно
+self.performSegueWithIdentifier("goto_login", sender: self)
+
+
+//закрыть окно 
+self.dismissViewControllerAnimated(true, completion: nil)

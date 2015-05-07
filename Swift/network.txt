@@ -1,0 +1,46 @@
+    
+        var api_key:NSString = "34ohioSSS90" as NSString
+        var api_action:NSString = "test" as NSString
+        var post:NSString = "api_key=\(api_key)&api_action=\(api_action)"
+        var url:NSURL = NSURL(string: "http://10.1.1.27/beltonepublic/androidapi/")!
+        var postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
+        var postLength:NSString = String( postData.length )
+        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = postData
+        request.setValue(postLength, forHTTPHeaderField: "Content-Length")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        var reponseError: NSError?
+        var response: NSURLResponse?
+        
+        var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
+ 
+        if ( urlData != nil ) {
+            let res = response as NSHTTPURLResponse!;
+            if (res.statusCode >= 200 && res.statusCode < 300) {
+                var responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
+                var error: NSError?
+                
+                let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as NSDictionary
+ 
+                let success:NSInteger = jsonData.valueForKey("status") as NSInteger
+                if(success == 1) {
+                    let message:String = jsonData.valueForKey("message") as String
+                    self.Text = message
+                } else {
+                    self.Text = "API Error"
+                }
+                
+            } else {
+                self.Text = "Transport Error"
+            }
+        } else {
+            self.Text = "Network Error"
+        }
+        
+        
+        dispatch_async(dispatch_get_main_queue()){
+            self.Status.text = self.Text
+        }
+

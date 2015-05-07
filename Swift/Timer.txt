@@ -1,0 +1,19 @@
+var timer = NSTimer()
+
+
+//start timer: (time in sec)
+
+timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateCounter"), userInfo: nil, repeats: true)
+
+
+//function:
+
+func updateCounter() {
+    countingLabel.text = String(counter++)
+}
+
+
+//stop timer
+
+timer.invalidate()
+

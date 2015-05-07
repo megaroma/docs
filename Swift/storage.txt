@@ -1,0 +1,23 @@
+setBool(_:forKey:)
+setFloat(_:forKey:)
+setInteger(_:forKey:)
+setObject(_:forKey:)
+setDouble(_:forKey:)
+setURL(_:forKey:)
+
+
+NSUserDefaults.standardUserDefaults().setInteger(2, forKey: "two") // saving variable two with value of 2
+println(NSUserDefaults.standardUserDefaults().objectForKey("two")!) // accessing the variable
+
+
+
+
+
+//----
+
+       var buf:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("username")
+        if((buf) != nil) {
+            dispatch_async(dispatch_get_main_queue()){
+               self.UserName.text = buf as String
+            }
+        }

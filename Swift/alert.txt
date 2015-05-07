@@ -1,0 +1,15 @@
+     if objc_getClass("UIAlertController") != nil {
+            var alert : UIAlertController = UIAlertController(title: "Noop", message: "Nothing to verify", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Click", style:.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }
+        else {
+            
+            let alert = UIAlertView()
+            alert.title = "Hey"
+            alert.message = "This is  one Alert"
+            alert.addButtonWithTitle("Working!!")
+            alert.show()
+        }
+
